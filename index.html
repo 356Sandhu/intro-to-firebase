@@ -29,6 +29,24 @@
       firebase.initializeApp(firebaseConfig);
 
       // OUR CODE
+      const dbRef = firebase.database().ref();
+      const moviesDb = firebase.database().ref("movies");
+
+      // const singleUser = firebase.database().ref(`users/${userId}`);
+      // const firebaseObj = moviesDb.push("Lost in Space");
+      // const firebaseKey = firebaseObj.key;
+
+      const colin = {
+        favMovie: "Ace Ventura 2: When Nature Calls",
+      };
+      let userId = "colin";
+      const singleUser = firebase.database().ref(`users/${userId}`);
+
+      const updateProfile = (profileData) => {
+        firebase.database().ref(`users/${userId}`).update(profileData);
+      };
+
+      updateProfile(colin);
     </script>
   </body>
 </html>
